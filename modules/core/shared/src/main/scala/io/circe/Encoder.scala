@@ -65,6 +65,9 @@ trait Encoder[A] extends Serializable { self =>
  * @groupname Product Case class and other product instances
  * @groupprio Product 5
  *
+ * @groupname Sum Sealed trait hierarchy and other sum instances
+ * @groupprio Sum 6
+ *
  * @author Travis Brown
  */
 object Encoder extends TupleEncoders with ProductEncoders with SumEncoders with MidPriorityEncoders {

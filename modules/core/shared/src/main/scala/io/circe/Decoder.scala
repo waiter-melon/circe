@@ -270,6 +270,9 @@ trait Decoder[A] extends Serializable { self =>
  * @groupname Product Case class and other product instances
  * @groupprio Product 6
  *
+ * @groupname Sum Sealed trait hierarchy and other sum instances
+ * @groupprio Sum 7
+ *
  * @author Travis Brown
  */
 final object Decoder extends TupleDecoders with ProductDecoders with SumDecoders with LowPriorityDecoders {
