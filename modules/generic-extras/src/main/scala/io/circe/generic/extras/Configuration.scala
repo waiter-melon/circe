@@ -41,11 +41,9 @@ final case class Configuration(
 
 final object Configuration {
 
-  import com.github.plokhotnyuk.jsoniter_scala.macros.JsonCodecMaker.{enforce_snake_case, `enforce-kebab-case`}
+  import com.github.plokhotnyuk.jsoniter_scala.macros.JsonCodecMaker._
 
   val default: Configuration = Configuration(Predef.identity, Predef.identity, false, None)
-  private val basePattern: Pattern = Pattern.compile("([A-Z]+)([A-Z][a-z])")
-  private val swapPattern: Pattern = Pattern.compile("([a-z\\d])([A-Z])")
 
   val snakeCaseTransformation: String => String = s => enforce_snake_case(s)
   val kebabCaseTransformation: String => String = s => `enforce-kebab-case`(s)
