@@ -27,6 +27,7 @@ val jawnVersion = "0.12.1"
 val shapelessVersion = "2.3.3"
 val refinedVersion = "0.9.1"
 val monocleVersion = "1.5.1-cats"
+val jsoniterVersion = "0.36.8"
 
 val paradiseVersion = "2.1.1"
 val scalaTestVersion = "3.0.5"
@@ -271,6 +272,9 @@ lazy val genericJS = genericBase.js
 lazy val genericExtrasBase = circeCrossModule("generic-extras", mima = previousCirceVersion, CrossType.Pure)
   .settings(macroSettings)
   .jsConfigure(_.settings(libraryDependencies += "org.spire-math" %% "jawn-parser" % jawnVersion % Test))
+  .jvmConfigure(_.settings(
+    libraryDependencies += "com.github.plokhotnyuk.jsoniter-scala" %% "jsoniter-scala-macros" % jsoniterVersion
+  ))
   .jvmSettings(fork in Test := true)
   .dependsOn(genericBase, testsBase % Test, literalBase % Test)
 
